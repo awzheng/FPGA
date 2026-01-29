@@ -1,0 +1,75 @@
+|LogicalStep_Lab1_top
+leds[0] <= verilog_polarity_control:inst8.OUT4
+leds[1] <= verilog_polarity_control:inst8.OUT3
+leds[2] <= verilog_polarity_control:inst8.OUT2
+leds[3] <= verilog_polarity_control:inst8.OUT1
+leds[4] <= verilog_polarity_control:inst7.OUT4
+leds[5] <= verilog_polarity_control:inst7.OUT3
+leds[6] <= verilog_polarity_control:inst7.OUT2
+leds[7] <= verilog_polarity_control:inst7.OUT1
+sw[1] => verilog_polarity_control:inst7.POLARITY_HIGH
+sw[1] => verilog_polarity_control:inst8.POLARITY_HIGH
+PB[0] => inst9.IN0
+PB[1] => inst10.IN0
+
+
+|LogicalStep_Lab1_top|verilog_polarity_control:inst7
+POLARITY_HIGH => OUT1.IN0
+POLARITY_HIGH => OUT2.IN0
+POLARITY_HIGH => OUT3.IN0
+POLARITY_HIGH => OUT4.IN0
+IN1 => OUT1.IN1
+IN2 => OUT2.IN1
+IN3 => OUT3.IN1
+IN4 => OUT4.IN1
+OUT1 <= OUT1.DB_MAX_OUTPUT_PORT_TYPE
+OUT2 <= OUT2.DB_MAX_OUTPUT_PORT_TYPE
+OUT3 <= OUT3.DB_MAX_OUTPUT_PORT_TYPE
+OUT4 <= OUT4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab1_top|verilog_gates:inst1
+XOR_IN1 => XOR_OUT.IN0
+XOR_IN2 => XOR_OUT.IN1
+OR_IN1 => OR_OUT.IN0
+OR_IN2 => OR_OUT.IN1
+NAND_IN1 => NAND_OUT.IN0
+NAND_IN2 => NAND_OUT.IN1
+AND_IN1 => AND_OUT.IN0
+AND_IN2 => AND_OUT.IN1
+XOR_OUT <= XOR_OUT.DB_MAX_OUTPUT_PORT_TYPE
+OR_OUT <= OR_OUT.DB_MAX_OUTPUT_PORT_TYPE
+NAND_OUT <= NAND_OUT.DB_MAX_OUTPUT_PORT_TYPE
+AND_OUT <= AND_OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab1_top|verilog_polarity_control:inst8
+POLARITY_HIGH => OUT1.IN0
+POLARITY_HIGH => OUT2.IN0
+POLARITY_HIGH => OUT3.IN0
+POLARITY_HIGH => OUT4.IN0
+IN1 => OUT1.IN1
+IN2 => OUT2.IN1
+IN3 => OUT3.IN1
+IN4 => OUT4.IN1
+OUT1 <= OUT1.DB_MAX_OUTPUT_PORT_TYPE
+OUT2 <= OUT2.DB_MAX_OUTPUT_PORT_TYPE
+OUT3 <= OUT3.DB_MAX_OUTPUT_PORT_TYPE
+OUT4 <= OUT4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab1_top|schem_gates:inst
+NAND_OUT <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+NAND_IN2 => inst3.IN0
+NAND_IN1 => inst3.IN1
+OR_OUT <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+OR_IN2 => inst2.IN0
+OR_IN1 => inst2.IN1
+XOR_OUT <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+XOR_IN1 => inst4.IN0
+XOR_IN2 => inst4.IN1
+AND_OUT <= inst.DB_MAX_OUTPUT_PORT_TYPE
+AND_IN1 => inst.IN0
+AND_IN2 => inst.IN1
+
+

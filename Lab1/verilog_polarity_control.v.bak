@@ -1,0 +1,15 @@
+module verilog_polarity_control
+(
+	// Input ports
+	input POLARITY_HIGH, INT1, IN2, IN3, IN4,
+	
+	//output ports
+	output OUT1, OUT2, OUT3, OUT4
+);
+
+assign OUT1 = ~(POLARITY_HIGH ^ IN1);
+assign OUT2 = ~(POLARITY_HIGH ^ IN2);
+assign OUT3 = ~(POLARITY_HIGH ^ IN3);
+assign OUT4 = ~(POLARITY_HIGH ^ IN4);
+
+endmodule
