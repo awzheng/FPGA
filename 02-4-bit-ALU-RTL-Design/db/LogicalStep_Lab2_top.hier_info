@@ -13,23 +13,23 @@ pb_n[0] => pb_n[0].IN1
 pb_n[1] => pb_n[1].IN1
 pb_n[2] => pb_n[2].IN1
 pb_n[3] => pb_n[3].IN1
-leds[0] <= mux_4bit_2_to_1:comb_11.dout
-leds[1] <= mux_4bit_2_to_1:comb_11.dout
-leds[2] <= mux_4bit_2_to_1:comb_11.dout
-leds[3] <= mux_4bit_2_to_1:comb_11.dout
-leds[4] <= <GND>
-leds[5] <= <GND>
-leds[6] <= <GND>
-leds[7] <= <GND>
-seg7_data[0] <= segment7_mux:u3.dout
-seg7_data[1] <= segment7_mux:u3.dout
-seg7_data[2] <= segment7_mux:u3.dout
-seg7_data[3] <= segment7_mux:u3.dout
-seg7_data[4] <= segment7_mux:u3.dout
-seg7_data[5] <= segment7_mux:u3.dout
-seg7_data[6] <= segment7_mux:u3.dout
-seg7_char1 <= segment7_mux:u3.dig1
-seg7_char2 <= segment7_mux:u3.dig2
+leds[0] << mux_4bit_2_to_1:u5.dout
+leds[1] << mux_4bit_2_to_1:u5.dout
+leds[2] << mux_4bit_2_to_1:u5.dout
+leds[3] << mux_4bit_2_to_1:u5.dout
+leds[4] << <GND>
+leds[5] << <GND>
+leds[6] << <GND>
+leds[7] << <GND>
+seg7_data[0] << segment7_mux:u3.dout
+seg7_data[1] << segment7_mux:u3.dout
+seg7_data[2] << segment7_mux:u3.dout
+seg7_data[3] << segment7_mux:u3.dout
+seg7_data[4] << segment7_mux:u3.dout
+seg7_data[5] << segment7_mux:u3.dout
+seg7_data[6] << segment7_mux:u3.dout
+seg7_char1 << segment7_mux:u3.dig1
+seg7_char2 << segment7_mux:u3.dig2
 
 
 |LogicalStep_Lab2_top|SevenSegment:u1
@@ -249,7 +249,7 @@ pbout[2] <= pbin[2].DB_MAX_OUTPUT_PORT_TYPE
 pbout[3] <= pbin[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|LogicalStep_Lab2_top|mux_4bit_2_to_1:comb_11
+|LogicalStep_Lab2_top|mux_4bit_2_to_1:u5
 din_A[0] => dout.DATAB
 din_A[1] => dout.DATAB
 din_A[2] => dout.DATAB
@@ -266,5 +266,66 @@ dout[0] <= dout.DB_MAX_OUTPUT_PORT_TYPE
 dout[1] <= dout.DB_MAX_OUTPUT_PORT_TYPE
 dout[2] <= dout.DB_MAX_OUTPUT_PORT_TYPE
 dout[3] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab2_top|full_adder_4bit:u6
+BUS0[0] => BUS0[0].IN1
+BUS0[1] => BUS0[1].IN1
+BUS0[2] => BUS0[2].IN1
+BUS0[3] => BUS0[3].IN1
+BUS1[0] => BUS1[0].IN1
+BUS1[1] => BUS1[1].IN1
+BUS1[2] => BUS1[2].IN1
+BUS1[3] => BUS1[3].IN1
+carry_in => carry_in.IN1
+SUM[0] <= full_adder_1bit:FA0.sum_out
+SUM[1] <= full_adder_1bit:FA1.sum_out
+SUM[2] <= full_adder_1bit:FA2.sum_out
+SUM[3] <= full_adder_1bit:FA3.sum_out
+carry_out <= full_adder_1bit:FA3.carry_out
+
+
+|LogicalStep_Lab2_top|full_adder_4bit:u6|full_adder_1bit:FA0
+input_A => half_sum_out.IN0
+input_A => half_carry_out.IN0
+input_B => half_sum_out.IN1
+input_B => half_carry_out.IN1
+carry_in => carry_out.IN1
+carry_in => sum_out.IN1
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab2_top|full_adder_4bit:u6|full_adder_1bit:FA1
+input_A => half_sum_out.IN0
+input_A => half_carry_out.IN0
+input_B => half_sum_out.IN1
+input_B => half_carry_out.IN1
+carry_in => carry_out.IN1
+carry_in => sum_out.IN1
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab2_top|full_adder_4bit:u6|full_adder_1bit:FA2
+input_A => half_sum_out.IN0
+input_A => half_carry_out.IN0
+input_B => half_sum_out.IN1
+input_B => half_carry_out.IN1
+carry_in => carry_out.IN1
+carry_in => sum_out.IN1
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|LogicalStep_Lab2_top|full_adder_4bit:u6|full_adder_1bit:FA3
+input_A => half_sum_out.IN0
+input_A => half_carry_out.IN0
+input_B => half_sum_out.IN1
+input_B => half_carry_out.IN1
+carry_in => carry_out.IN1
+carry_in => sum_out.IN1
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
 
 

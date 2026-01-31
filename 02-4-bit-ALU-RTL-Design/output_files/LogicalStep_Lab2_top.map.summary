@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Jan 28 10:43:46 2026
+Analysis & Synthesis Status : Successful - Sat Jan 31 17:33:44 2026
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : LogicalStep_Lab2_top
 Top-level Entity Name : LogicalStep_Lab2_top
 Family : MAX 10
-Total logic elements : 44
-    Total combinational functions : 44
+Total logic elements : 37
+    Total combinational functions : 37
     Dedicated logic registers : 11
 Total registers : 11
 Total pins : 31

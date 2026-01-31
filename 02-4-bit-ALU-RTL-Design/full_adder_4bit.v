@@ -50,5 +50,5 @@ module full_adder_4bit (
         .carry_out(carry_out),
         .sum_out(SUM[3])
     );
-
+	 
 endmodule 
